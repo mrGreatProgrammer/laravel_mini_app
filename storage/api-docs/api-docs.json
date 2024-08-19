@@ -1,0 +1,235 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "My DOC API",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/": {},
+        "/api/comments": {
+            "get": {
+                "tags": [
+                    "comments"
+                ],
+                "summary": "Get all comments by productId",
+                "operationId": "e93f8edf17ab9101e295cfe08e7c44b4",
+                "parameters": [
+                    {
+                        "name": "product_id",
+                        "in": "path",
+                        "description": "Parameter with mutliple examples",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "examples": {
+                            "int": {
+                                "summary": "An int value.",
+                                "value": "1"
+                            },
+                            "uuid": {
+                                "summary": "An UUID value.",
+                                "value": "0006faf6-7a61-426c-9034-579f2cfcfa83"
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "comments"
+                ],
+                "summary": "add comment to product",
+                "operationId": "491da65f7bfa6c641544ee2638b373ef",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "txt": {
+                                        "type": "string"
+                                    },
+                                    "product_id": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "txt": "комментарий",
+                                    "product_id": 1
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/api/products": {
+            "get": {
+                "tags": [
+                    "products"
+                ],
+                "summary": "Get all products (with filter also)",
+                "operationId": "690d81529b88b5c037807e5aff7552aa",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Parameter with mutliple examples",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "examples": {
+                            "int": {
+                                "summary": "An int value.",
+                                "value": "1"
+                            },
+                            "uuid": {
+                                "summary": "An UUID value.",
+                                "value": "0006faf6-7a61-426c-9034-579f2cfcfa83"
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "products"
+                ],
+                "summary": "Create a product",
+                "operationId": "72dae9f664f201fa7d38d2cddadedf77",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "title": {
+                                        "type": "string"
+                                    },
+                                    "description": {
+                                        "type": "string"
+                                    },
+                                    "phone": {
+                                        "oneOf": [
+                                            {
+                                                "type": "string"
+                                            },
+                                            {
+                                                "type": "integer"
+                                            }
+                                        ]
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "title": "мобильный телефон",
+                                    "description": "супер телефон",
+                                    "phone": 12345678
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/api/products/{id}": {
+            "get": {
+                "tags": [
+                    "products"
+                ],
+                "summary": "Get a product by id",
+                "operationId": "7b3a47b5a5917e4f3df79b577637b420",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Parameter with mutliple examples",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "examples": {
+                            "int": {
+                                "summary": "An int value.",
+                                "value": "1"
+                            },
+                            "uuid": {
+                                "summary": "An UUID value.",
+                                "value": "0006faf6-7a61-426c-9034-579f2cfcfa83"
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "products"
+                ],
+                "summary": "Delete a product",
+                "operationId": "e755a812867810e3f73390baa60b7352",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Parameter with mutliple examples",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "examples": {
+                            "int": {
+                                "summary": "An int value.",
+                                "value": "1"
+                            },
+                            "uuid": {
+                                "summary": "An UUID value.",
+                                "value": "0006faf6-7a61-426c-9034-579f2cfcfa83"
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "comments",
+            "description": "comments"
+        },
+        {
+            "name": "products",
+            "description": "products"
+        }
+    ]
+}
